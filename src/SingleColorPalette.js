@@ -6,56 +6,56 @@ import ColorBox from './ColorBox.js';
 import './ColorBox.css';
 
 class SingleColorPalette extends Component {
-  constructor(props) {
-    super(props);
-    this._shades = this.gatherShades(this.props.palette, this.props.colorId);
-    this.state = { format: 'hex' };
+    constructor(props) {
+        super(props);
+        this._shades = this.gatherShades(this.props.palette, this.props.colorId);
+        this.state = { format: 'hex' };
 
-    this.changeFormat = this.changeFormat.bind(this);
-  }
-
-  gatherShades(palette, colorToFilterBy) {
-    let shades = [];
-    let allColors = palette.colors;
-    for (let key in allColors) {
-      shades = shades.concat(allColors[key].filter(color => color.id === colorToFilterBy));
+        this.changeFormat = this.changeFormat.bind(this);
     }
 
-    // Return all shades of given color. Remove first iteration because it is white.
-    return shades.slice(1);
-  }
+    gatherShades(palette, colorToFilterBy) {
+        let shades = [];
+        let allColors = palette.colors;
+        for (let key in allColors) {
+            shades = shades.concat(allColors[key].filter(color => color.id === colorToFilterBy));
+        }
 
-  changeFormat(val) {
-    this.setState({ format: val });
-  }
+        // Return all shades of given color. Remove first iteration because it is white.
+        return shades.slice(1);
+    }
 
-  render() {
-    const { format } = this.state;
-    const { paletteName, emoji, id } = this.props.palette;
-    const colorBoxes = this._shades.map(color => (
-      <ColorBox
-        key={color.name}
-        name={color.name}
-        background={color[format]}
-        showingFullPalette={false}
-      />
-    ));
+    changeFormat(val) {
+        this.setState({ format: val });
+    }
 
-    return (
-      <div className="SingleColorPalette Palette">
-        <Navbar handleChange={this.changeFormat} showingAllColors={false} />
-        <div className="Palette-colors">
-          {colorBoxes}
-          <div className="go-back ColorBox">
-            <Link to={`/palette/${id}`} className="back-button">
-              Go Back
-            </Link>
-          </div>
-        </div>
-        <PaletteFooter paletteName={paletteName} emoji={emoji} />
-      </div>
-    );
-  }
+    render() {
+        const { format } = this.state;
+        const { paletteName, emoji, id } = this.props.palette;
+        const colorBoxes = this._shades.map(color => (
+            <ColorBox
+                key={color.name}
+                name={color.name}
+                background={color[format]}
+                showingFullPalette={false}
+            />
+        ));
+
+        return (
+            <div className="SingleColorPalette Palette">
+                <Navbar handleChange={this.changeFormat} showingAllColors={false} />
+                <div className="Palette-colors">
+                    {colorBoxes}
+                    <div className="go-back ColorBox">
+                        <Link to={`/palette/${id}`} className="back-button">
+                            Go Back
+                        </Link>
+                    </div>
+                </div>
+                <PaletteFooter paletteName={paletteName} emoji={emoji} />
+            </div>
+        );
+    }
 }
 
 export default SingleColorPalette;
