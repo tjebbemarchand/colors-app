@@ -75,7 +75,7 @@ class ColorPickerForm extends Component {
                         disabled={paletteIsFull}
                         className={classes.addColor}
                         style={{
-                            backgroundColor: paletteIsFull ? 'grey' : this.state.currentColor
+                            backgroundColor: paletteIsFull ? 'grey' : currentColor
                         }}
                     >
                         {paletteIsFull ? 'Palette Full' : 'Add Color'}
