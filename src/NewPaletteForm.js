@@ -14,6 +14,8 @@ import ColorPickerForm from './ColorPickerForm';
 import DraggableColorList from './DraggableColorList';
 import styles from './styles/NewPaletteFormStyles';
 
+import seedColors from './seedColors';
+
 class NewPaletteForm extends Component {
     static defaultProps = {
         maxColors: 20
@@ -25,7 +27,7 @@ class NewPaletteForm extends Component {
             open: true,
             currentColor: 'teal',
             newColorName: '',
-            colors: this.props.palettes[0].colors
+            colors: seedColors[0].colors
         };
         this.addNewColor = this.addNewColor.bind(this);
         this.handleChange = this.handleChange.bind(this);
