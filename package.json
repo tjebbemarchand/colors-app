@@ -28,7 +28,7 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },
-    "homepage": "https://tjebbemarchand.github.io/colors-app",
+    "homepage": "https://colorsapp.tjebbemarchand.nl/",
     "eslintConfig": {
         "extends": "react-app"
     },
