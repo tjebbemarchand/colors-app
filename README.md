@@ -2,7 +2,7 @@
 
 An application for creating color palettes. Build in React.
 
-[Colors app](https://www.colorsapp.tjebbemarchand.nl/)
+[Colors app](https://tjebbemarchand.github.io/colors-app/)
 
 ## Features
 
